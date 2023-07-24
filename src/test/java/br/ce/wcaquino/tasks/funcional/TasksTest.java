@@ -14,7 +14,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class TasksTest {
 	
-	private static final String IP_LOCAL = "localhost"; 
+	private static final String IP_LOCAL = "192.168.0.11"; 
 	
 	public WebDriver acessarBrowser() throws MalformedURLException {
 		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
