@@ -14,12 +14,13 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class TasksTest {
 	
+	private static final String IP_LOCAL = "localhost"; 
 	
 	public WebDriver acessarBrowser() throws MalformedURLException {
 		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 		//WebDriver driver = new ChromeDriver();
-		WebDriver driver = new RemoteWebDriver(new URL("http://192.168.1.6:4444/wd/hub"), capabilities);
-		driver.navigate().to("http://192.168.0.11:8001/tasks");
+		WebDriver driver = new RemoteWebDriver(new URL("http://"+IP_LOCAL+":4444/wd/hub"), capabilities);
+		driver.navigate().to("http://"+IP_LOCAL+":8001/tasks");
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		return driver;
 	}
