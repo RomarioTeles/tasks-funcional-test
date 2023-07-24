@@ -3,23 +3,22 @@ package br.ce.wcaquino.tasks.funcional;
 import static org.junit.Assert.assertEquals;
 
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class TasksTest {
 	
 	
 	public WebDriver acessarBrowser() throws MalformedURLException {
-		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-		//WebDriver driver = new ChromeDriver();
-		WebDriver driver = new RemoteWebDriver(new URL("http://192.168.1.6:4444/wd/hub"), capabilities);
-		driver.navigate().to("http://192.168.1.6:8001/tasks");
+		//DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+		WebDriver driver = new ChromeDriver();
+		//WebDriver driver = new RemoteWebDriver(new URL("http://192.168.1.6:4444/wd/hub"), capabilities);
+		driver.navigate().to("http://192.168.0.11:8001/tasks");
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		return driver;
 	}
@@ -45,7 +44,7 @@ public class TasksTest {
 			//validar mensagem de sucesso
 			String message = driver.findElement(By.id("message")).getText();
 			
-			assertEquals("Success!", message);
+			assertEquals("Sucesso!", message);
 			
 		}finally {
 			//fechar o browser
